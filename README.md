@@ -13,7 +13,7 @@ docker build simplematrix:latest
 When runnnng you must specify:
 - MATRIX_IP ( e.g. 192.168.1.100 )
 - CONTAIMER_ADDRESS ( e.g. 192.168.1.20:8001 )
-- SOURCE_LABELS as a json list with the keys 'name' and 'icon' an example is:
+- SOURCE_LABELS as a json list with the keys 'name' and 'icon'. It uses Google’s mdi icons. An example is:
 ```json
 SOURCE_LABELS='[{"name":"Computer","icon":"monitor"},{"name":"Laptop","icon":"laptop"},]]'
 ```
