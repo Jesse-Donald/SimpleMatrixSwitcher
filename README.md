@@ -21,7 +21,7 @@ SOURCE_LABELS='[{"name":"Computer","icon":"monitor"},{"name":"Laptop","icon":"la
 ## Examples:
 Running with podman run:
 ```bash
-[Apodman run -d -p 8001:8000 --name simplematrix -e MATRIX_IP="192.168.1.100" -e CONTAINER_ADDRESS="192.168.1.20:8001" -e SOURCE_LABELS='[{"name":"PC","icon":"monitor"}]' localhost/simplematrix:1.0
+podman run -d -p 8001:8000 --name simplematrix -e MATRIX_IP="192.168.1.100" -e CONTAINER_ADDRESS="192.168.1.20:8001" -e SOURCE_LABELS='[{"name":"PC","icon":"monitor"}]' localhost/simplematrix:1.0
 ```
 ### Planned Features
 - [ ] Add dark mode toggle
