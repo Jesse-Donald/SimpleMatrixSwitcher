@@ -29,5 +29,5 @@ podman run -d -p 8001:8000 --name simplematrix -e MATRIX_IP="192.168.1.100" -e C
 
 ### Completed
 - [x] Allow specifying ip adresses via envionmemt variables
-- [x] Add advances mode for further customization
+- [x] Add advanced mode for further customization
 - [x] Allow source labels and icons to be customised via environmennt vars
