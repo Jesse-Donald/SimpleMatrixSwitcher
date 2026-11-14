@@ -3,6 +3,7 @@ A small web server used to simplify changing presets on a HDMI Matrix written in
 
 ![alt text](https://www.radioparts.com.au/Images/ProductImages/64538600.jpg)
 
+## Usage
 It is reccomended to run the server using docker
 
 ```bash
