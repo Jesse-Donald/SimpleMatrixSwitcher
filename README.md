@@ -23,6 +23,8 @@ Running with podman run:
 ```bash
 podman run -d -p 8001:8000 --name simplematrix -e MATRIX_IP="192.168.1.100" -e CONTAINER_ADDRESS="192.168.1.20:8001" -e SOURCE_LABELS='[{"name":"PC","icon":"monitor"}]' localhost/simplematrix:1.0
 ```
+<img width="1084" height="888" alt="image" src="https://github.com/user-attachments/assets/e6efcfe4-28b8-4b57-9c17-4f8d4a31c7c5" />
+
 ### Planned Features
 - [ ] Add dark mode toggle
   - [ ] Password Protect admin source
