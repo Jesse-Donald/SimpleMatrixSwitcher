@@ -1,5 +1,6 @@
 <head>
-    <link href="orderform.css' rel="stylesheet">
+    <!--link href="https://jsdelivr.net" rel="stylesheet"-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
       
       html {
@@ -342,57 +343,21 @@ input {
   
 <fieldset class="checkbox-group">
 	<legend class="checkbox-group-legend">Visuals Scene Selector</legend>
-    <div class="checkbox" onclick="sendMatrixUpdate(1)">
+{% for label in source_labels %}
+    <div class="checkbox" onclick="sendMatrixUpdate({{ loop.index }})">
 		<label class="checkbox-wrapper">
 			<input type="radio" class="checkbox-input" name='cat' value="Coffee" on/>
 			<span class="checkbox-tile">
-				<span class="checkbox-icon">
-                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 width="800px" height="800px" viewBox="0 0 512 512"  xml:space="preserve">
-<style type="text/css">
-<![CDATA[
-	.st0{fill:#000000;}
-]]>
-</style>
-<g>
-	<path class="st0" d="M477.984,39.203H34.016C15.219,39.203,0,54.438,0,73.219v283.969c0,18.781,15.219,34.016,34.016,34.016H220
-		v7.578c0,18.781-15.219,34.016-34.016,34.016H136v40h73.188h93.625H376v-40h-49.984c-18.797,0-34.016-15.234-34.016-34.016v-7.578
-		h185.984c18.797,0,34.016-15.234,34.016-34.016V73.219C512,54.438,496.781,39.203,477.984,39.203z M464,315.859
-		c0,6.266-5.078,11.344-11.344,11.344H59.344c-6.266,0-11.344-5.078-11.344-11.344V98.547c0-6.266,5.078-11.344,11.344-11.344
-		h393.313c6.266,0,11.344,5.078,11.344,11.344V315.859z"/>
-</g>
-</svg>
+				<span class="checkbox-icon"> 
+                    <span style="font-size: 60pt;" class="material-icons">{{ label.icon }}</span>
                       
 				</span>
-				<span class="checkbox-label">Church PC</span>
+				<span class="checkbox-label">{{ label.name }}</span>
 			</span>
 		</label>
 	</div>
-	<div class="checkbox" onclick="sendMatrixUpdate(2)">
-		<label class="checkbox-wrapper">
-			<input type="radio" class="checkbox-input"  name='cat' value="Chai Latte"/>
-			<span class="checkbox-tile">
-				<span class="checkbox-icon">
-					<svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>Apple TV icon</title><path d="M20.57 17.735h-1.815l-3.34-9.203h1.633l2.02 5.987c.075.231.273.9.586 2.012l.297-.997.33-1.006 2.094-6.004H24zm-5.344-.066a5.76 5.76 0 0 1-1.55.207c-1.23 0-1.84-.693-1.84-2.087V9.646h-1.063V8.532h1.121V7.081l1.476-.602v2.062h1.707v1.113H13.38v5.805c0 .446.074.75.214.932.14.182.396.264.75.264.207 0 .495-.041.883-.115zm-7.29-5.343c.017 1.764 1.55 2.358 1.567 2.366-.017.042-.248.842-.808 1.658-.487.71-.99 1.418-1.79 1.435-.783.016-1.03-.462-1.93-.462-.89 0-1.17.445-1.913.478-.758.025-1.344-.775-1.838-1.484-.998-1.451-1.765-4.098-.734-5.88.51-.89 1.426-1.451 2.416-1.46.75-.016 1.468.512 1.93.512.461 0 1.327-.627 2.234-.536.38.016 1.452.157 2.136 1.154-.058.033-1.278.743-1.27 2.219M6.468 7.988c.404-.495.685-1.18.61-1.864-.585.025-1.294.388-1.723.883-.38.437-.71 1.138-.619 1.806.652.05 1.328-.338 1.732-.825Z"/></svg>
-				</span>
-				<span class="checkbox-label">Apple TV</span>
-			</span>
-		</label>
-	</div>
-    <div class="checkbox" onclick="sendMatrixUpdate(3)">
-		<label class="checkbox-wrapper">
-			<input type="radio" class="checkbox-input" name="cat" value="Hot Chocolate"/>
-			<span class="checkbox-tile">
-				<span class="checkbox-icon">
-					<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21 16V7.2C21 6.0799 21 5.51984 20.782 5.09202C20.5903 4.71569 20.2843 4.40973 19.908 4.21799C19.4802 4 18.9201 4 17.8 4H6.2C5.07989 4 4.51984 4 4.09202 4.21799C3.71569 4.40973 3.40973 4.71569 3.21799 5.09202C3 5.51984 3 6.0799 3 7.2V16M4.66667 20H19.3333C19.9533 20 20.2633 20 20.5176 19.9319C21.2078 19.7469 21.7469 19.2078 21.9319 18.5176C22 18.2633 22 17.9533 22 17.3333C22 17.0233 22 16.8683 21.9659 16.7412C21.8735 16.3961 21.6039 16.1265 21.2588 16.0341C21.1317 16 20.9767 16 20.6667 16H3.33333C3.02334 16 2.86835 16 2.74118 16.0341C2.39609 16.1265 2.12654 16.3961 2.03407 16.7412C2 16.8683 2 17.0233 2 17.3333C2 17.9533 2 18.2633 2.06815 18.5176C2.25308 19.2078 2.79218 19.7469 3.48236 19.9319C3.73669 20 4.04669 20 4.66667 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-				</span>
-				<span class="checkbox-label">Laptop</span>
-			</span>
-		</label>
-	</div>
-  <div class="checkbox" onclick="sendMatrixUpdate(4)">
+{% endfor %}
+  <div class="checkbox" onclick="sendMatrixUpdate(999)">
 		<label class="checkbox-wrapper">
 			<input type="radio" class="checkbox-input" name="cat" value="Tea"/>
 			<span class="checkbox-tile">
@@ -416,11 +381,11 @@ input {
   const iframe = document.getElementById("adminFrame");
 
   if (iframe) {
-    iframe.style.display = presetId === 4 ? "block" : "none";
+    iframe.style.display = presetId === 999 ? "block" : "none";
   }
 
   // Only send preset updates when NOT in advanced mode
-  if (presetId !== 4) {
+  if (presetId !== 999) {
     const payload = `#preset:${presetId} exe=0`;
 
     fetch('http://{{container}}/forward_request', {

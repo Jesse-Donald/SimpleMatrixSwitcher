@@ -1,14 +1,20 @@
 from flask import Flask, request, jsonify, render_template
 import requests
 import os
+import json
 
 app = Flask(__name__)
 MATRIX_IP = os.environ.get("MATRIX_IP", "192.168.1.100")
 CONTAINER_ADDRESS = os.environ.get("CONTAINER_ADDRESS", "http://localhost:8000")
+raw_items = os.environ.get("SOURCE_LABELS", "[]")
+try:
+    items = json.loads(raw_items)
+except json.JSONDecodeError:
+    items = []
 
 @app.route('/')
 def index():
-	return render_template('index.html', matrixip=MATRIX_IP, container=CONTAINER_ADDRESS)
+	return render_template('index.html', matrixip=MATRIX_IP, container=CONTAINER_ADDRESS, source_labels=items)
 	
 @app.route('/forward_request', methods=['POST'])
 def forward_request():
